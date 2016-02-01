@@ -19,8 +19,7 @@ class SimpleGui0 {
 	public static void main(String args[]) {
 		//a button first
 		JButton myButton = new JButton("Click this!");
-		//myButton.setMnemonic(KeyEvent.VK_C);
-		myButton.setMnemonic(KeyEvent.c);
+		myButton.setMnemonic(KeyEvent.VK_C);
 		//button can be pressed by Alt-C
 
 		//create a panel with flow layout
@@ -32,6 +31,10 @@ class SimpleGui0 {
 		//action
 		Action buttonAction = new ButtonAction("CLICK ME", "This is a click me JButton");
 		JButton button2 = new JButton(buttonAction);
+		button2.getInputMap().put(KeyStroke.getKeyStroke('c'), "Click Me Button");
+ 		button2.getActionMap().put("Click Me Button", buttonAction);
+
+		myPane.add(button2);
 
 		//the frame
 		JFrame myFrame = new JFrame("Simple GUI 0");
